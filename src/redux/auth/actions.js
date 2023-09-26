@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://wallet-api.cyclic.cloud/api';
+axios.defaults.baseURL = 'mongodb+srv://damiantchorzewski0:Leszek11@cluster1.dho7a63.mongodb.net/?retryWrites=true&w=majority';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
