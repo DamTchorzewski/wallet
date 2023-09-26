@@ -12,9 +12,9 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="s7vensurvivors-wallet/login" element={<Login />}></Route>
-        <Route path="s7vensurvivors-wallet/register" element={<Registration />}></Route>
-        <Route path="s7vensurvivors-wallet/dashboard" element={<DashBoard />}></Route>
+        <Route path="wallet/login" element={<Login />}></Route>
+        <Route path="wallet/register" element={<Registration />}></Route>
+        <Route path="wallet/dashboard" element={<DashBoard />}></Route>
         <Route path="*" element={<Login />} />
       </Routes>
       {/* <Routes>
