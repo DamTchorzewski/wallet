@@ -1,47 +1,78 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
+import React, { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import SharedLayoutRestricted from './SharedLayoutRest';
+import SharedLayoutPrivate from './SharedLayoutPriv';
+import PrivateRoute from '../components/PrivateRoute';
+import RestrictedRoute from '../components/RestrictedRoute';
+import Login from '../pages/login';
+import { refreshUser } from '../redux/auth/actions';
 
-import Login from "../pages/login";
-import Registration from "../pages/registration";
-import { DashBoard } from "../pages/dashboard";
-
-// const Home = lazy(() => import('./pages/home/Home'));
+const Registration = lazy(() => import('../pages/registration'));
+const DashBoard = lazy(() => import('../pages/dashboard'));
+const Currency = lazy(() => import('../components/Currency/Currency'));
+const Statistics = lazy(() => import('../pages/statistics'));
 
 const App = () => {
-  // const [count, setCount] = useState(0);
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
 
   return (
     <>
       <Routes>
-        <Route path="wallet/login" element={<Login />}></Route>
-        <Route path="wallet/register" element={<Registration />}></Route>
-        <Route path="wallet/dashboard" element={<DashBoard />}></Route>
-        <Route path="*" element={<Login />} />
-      </Routes>
-      {/* <Routes>
-        <Route path='/login' element={<Login />}></Route>
-        <Route
-          path='/register'
-          element={<Registration />}></Route>
-        <Route path='*' element={<Login />} />
-      </Routes> */}
-      {/* <Routes>
-        <Route path="/" element={<Login />}>
-          <Route path="/register" element={<SignUp />} />
-          <Route path="/wallet" element={<SharedLayout />}>
-            <Route index element={<NavBar />} />
-            <Route index element={<Transactions />}>
-              <Route path="add" element={<AddTransaction />} />
-              <Route
-                path="/:transactionId/edit"
-                element={<EditTransaction />}
+        <Route path="Goit-Wallet/" element={<SharedLayoutRestricted />}>
+          <Route
+            index
+            element={
+              <RestrictedRoute
+                redirectTo="/Goit-Wallet/dashboard"
+                component={<Login />}
               />
-              <Route path="/:transactionId/delete" element={<DeleteTransaction />} />
-            </Route>
-            <Route path="/currency" element={<Currency />} />
-            <Route path="/statistics" element={<Currency />} />
-          </Route>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                redirectTo="/Goit-Wallet/dashboard"
+                component={<Registration />}
+              />
+            }
+          />
         </Route>
-      </Routes> */}
+        <Route path="Goit-Wallet/dashboard" element={<SharedLayoutPrivate />}>
+          <Route
+            index
+            element={
+              <PrivateRoute
+                redirectTo="/Goit-Wallet/"
+                component={<DashBoard />}
+              />
+            }
+          />
+          <Route
+            path="diagram"
+            element={
+              <PrivateRoute
+                redirectTo="/Goit-Wallet/"
+                component={<Statistics />}
+              />
+            }
+          />
+          <Route
+            path="currency"
+            element={
+              <PrivateRoute
+                redirectTo="/Goit-Wallet/"
+                component={<Currency />}
+              />
+            }
+          />
+        </Route>
+      </Routes>
     </>
   );
 };

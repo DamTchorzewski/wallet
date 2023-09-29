@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'mongodb+srv://damiantchorzewski0:Leszek11@cluster1.dho7a63.mongodb.net/?retryWrites=true&w=majority';
+axios.defaults.baseURL = 'https://wallet-api.cyclic.cloud/api';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -71,16 +71,15 @@ export const refreshUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (!persistedToken) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
+      return thunkAPI.rejectWithValue('Unable to refresh user');
     }
 
     try {
       setAuthHeader(persistedToken);
       const res = await axios.get('/users/current');
       return res.data.result;
-    } catch (err) {
-      console.error(err.message);
-      return thunkAPI.rejectWithValue('User refresh failed');
+    } catch {
+      return thunkAPI.rejectWithValue('Unable to refresh user');
     }
   }
 );

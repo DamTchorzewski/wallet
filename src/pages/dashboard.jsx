@@ -1,31 +1,32 @@
-import React, {Fragment} from 'react'
-import Media from 'react-media'
-import { Dashboard } from '../components/Dashboard/Dashboard'
-import { DashboardMobile } from '../components/Dashboard/DashboardMobile'
-import { AddTransactionButton } from '../components/AddTransactionButton/AddTransactionButton'
-import { SelectMenuModal } from '../components/SelectMenuModal/SelectMenuModal'
-import { SelectStatisticsMenu } from '../components/SelectStatisticsMenu/SelectStatisticsMenu'
+import React, { Fragment, lazy } from 'react';
+import Media from 'react-media';
+import { Dashboard } from '../components/Dashboard/Dashboard';
+import { DashboardMobile } from '../components/Dashboard/DashboardMobile';
+import BalanceComponent from '../components/Balance/Balance';
+const Currency = lazy(() => import('../components/Currency/Currency'));
 
-
-export const DashBoard = () => {
+const DashBoard = () => {
   return (
-  <>
-    <Media queries={{
-      small: "(max-width: 768px)",
-      medium: "(min-width: 769px)"
-    }}>
-      {matches => (
-        <Fragment>
-          {matches.small && <DashboardMobile/>}
-          {matches.medium && <Dashboard/>}
-        </Fragment>
-      )}
-    </Media>
-    <AddTransactionButton/>
-    {/* <SelectStatisticsMenu placeholder={'Month'} type={'month'}/>
-    <SelectStatisticsMenu placeholder={'Year'} type={'year'}/> */}
-  </>
-  )
-}
+    <>
+      <BalanceComponent />
+      <Media queries={{ medium: '(min-width: 769px)' }}>
+        {matches => matches.medium && <Currency />}
+      </Media>
 
-
+      <Media
+        queries={{
+          small: '(max-width: 768px)',
+          medium: '(min-width: 769px)',
+        }}
+      >
+        {matches => (
+          <Fragment>
+            {matches.small && <DashboardMobile />}
+            {matches.medium && <Dashboard />}
+          </Fragment>
+        )}
+      </Media>
+    </>
+  );
+};
+export default DashBoard;
