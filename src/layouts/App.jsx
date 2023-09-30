@@ -23,12 +23,12 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="Goit-Wallet/" element={<SharedLayoutRestricted />}>
+        <Route path="Wallet/" element={<SharedLayoutRestricted />}>
           <Route
             index
             element={
               <RestrictedRoute
-                redirectTo="/Goit-Wallet/dashboard"
+                redirectTo="/Wallet/dashboard"
                 component={<Login />}
               />
             }
@@ -37,18 +37,18 @@ const App = () => {
             path="register"
             element={
               <RestrictedRoute
-                redirectTo="/Goit-Wallet/dashboard"
+                redirectTo="/Wallet/dashboard"
                 component={<Registration />}
               />
             }
           />
         </Route>
-        <Route path="Goit-Wallet/dashboard" element={<SharedLayoutPrivate />}>
+        <Route path="Wallet/dashboard" element={<SharedLayoutPrivate />}>
           <Route
             index
             element={
               <PrivateRoute
-                redirectTo="/Goit-Wallet/"
+                redirectTo="/Wallet/"
                 component={<DashBoard />}
               />
             }
@@ -57,7 +57,7 @@ const App = () => {
             path="diagram"
             element={
               <PrivateRoute
-                redirectTo="/Goit-Wallet/"
+                redirectTo="/Wallet/"
                 component={<Statistics />}
               />
             }
@@ -66,7 +66,7 @@ const App = () => {
             path="currency"
             element={
               <PrivateRoute
-                redirectTo="/Goit-Wallet/"
+                redirectTo="/Wallet/"
                 component={<Currency />}
               />
             }
