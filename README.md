@@ -1,27 +1,7 @@
-# Goit-Wallet-DB
-
-## Komendy
-
-1. Po pierwsze - `npm install`
-2. Do uruchomienia trybu prod - `npm start`
+# Goit-Wallet
+Zrobione na podstawie  [Vite template](https://github.com/MateuszCharysz/Vite-Template-React-Github)
+## Po kolei
+1. "Sklonować" do lokalnego repo
+2. Uruchomić npm install
 3. Do uruchomienia trybu dev - `npm run dev`
-4. Do uruchomienia eslinta - `npm run lint`
 
-## Endpoints
-
-### Users
-
-- Register: `https://wallet-api.cyclic.cloud/api/users/register` - POST
-- Login: `https://wallet-api.cyclic.cloud/api/users/login` - POST
-- Logout: `https://wallet-api.cyclic.cloud/api/users/logout` - POST
-- Reverify E-mail: `https://wallet-api.cyclic.cloud/api/users/reverify` - POST
-- Verify E-mail: `https://wallet-api.cyclic.cloud/api/users/verify/:verificationToken` - GET
-- Current: `https://wallet-api.cyclic.cloud/api/users/current` - GET
-
-### Transactions
-
-- All Transactions: `https://wallet-api.cyclic.cloud/api/transactions` - GET
-- Transaction's Category by ID: `https://wallet-api.cyclic.cloud/api/transactions/categories/:id` - GET
-- Create Transaction: `https://wallet-api.cyclic.cloud/api/transactions` - POST
-- Remove Transaction: `https://wallet-api.cyclic.cloud/api/transactions/:id` - DELETE
-- Update Transaction: `https://wallet-api.cyclic.cloud/api/transactions/:id` - PUT
