@@ -13,6 +13,7 @@ const Navigation = () => {
             <p className={css.text}>Home</p>
           </NavLink>
         </li>
+        
         <li>
           <NavLink to="diagram" className={css.navLink}>
             <Svg className={css.icon} icon="diagram" fill="#6E78E8" size="44" />
