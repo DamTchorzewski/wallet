@@ -159,7 +159,7 @@ const verifyEmail = async (req, res, next) => {
       });
     }
 
-    res.redirect('https://damtchorzewski.github.io/S7vensurvivors-Wallet/');
+    res.redirect('https://damtchorzewski.github.io/S7venSurvivors-Wallet/');
   } catch (err) {
     next(err);
   }
