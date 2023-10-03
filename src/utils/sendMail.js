@@ -15,7 +15,7 @@ const sendMail = async (email, verificationToken) => {
     from: process.env.SMTP_USER,
     to: email,
     subject: 'E-mail Verification Wallet',
-    html: `<p style="font-size:20px;">Verify your e-mail address by clicking on this link - <a href="https://wallet-app-api.cyclic.cloud/api/users/verify/${verificationToken}" target="_blank" rel="noopener noreferrer nofollow"><strong>Verification Link</strong></a></p>`,
+    html: `<p style="font-size:20px;">Verify your e-mail address. Click Link -<a href="https://wallet-app-api.cyclic.cloud/api/users/verify/${verificationToken}" target="_blank" rel="noopener noreferrer nofollow"><strong>Verification Link</strong></a></p>`,
   };
 
   try {
