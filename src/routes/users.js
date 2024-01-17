@@ -4,7 +4,7 @@ import auth from '../middlewares/auth.js';
 
 const router = express.Router();
 
-router.post('/signup', usersController.signup);
+router.post('/register', usersController.register);
 
 router.post('/login', usersController.login);
 

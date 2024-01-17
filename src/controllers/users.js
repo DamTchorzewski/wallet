@@ -11,7 +11,7 @@ import {
 } from '../utils/validation.js';
 import { handleValidationError } from '../utils/handleErrors.js';
 
-const signup = async (req, res, next) => {
+const register = async (req, res, next) => {
   try {
     await userRegisterSchema.validateAsync(req.body);
     const { body } = req;
@@ -206,7 +206,7 @@ const reverifyEmail = async (req, res, next) => {
 };
 
 const usersController = {
-  signup,
+  register,
   login,
   logout,
   getCurrent,

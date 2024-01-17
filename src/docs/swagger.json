@@ -257,7 +257,7 @@
     }
   ],
   "paths": {
-    "/api/users/signup": {
+    "/api/users/register": {
       "post": {
         "tags": ["Users"],
         "summary": "Create a new user",
