@@ -3,11 +3,11 @@
   "info": {
     "title": "Wallet API",
     "version": "1.0.0",
-    "description": "<b>This is the Wallet API documentation. The final project created by `Becoming Masters` programming enthusiasts.</b><p>The Wallet repository: <a href='https://github.com/MateuszCharysz/Goit-Wallet'><b>frontend</b></a> | <a href='https://github.com/benbrzezinski/Goit-Wallet-DB'><b>backend</b></a></p><p>Working example: <a href='https://mateuszcharysz.github.io/Goit-Wallet/'><b>The Wallet</b></a></p>"
+    "description": ""
   },
   "servers": [
     {
-      "url": "https://wallet-app-api.cyclic.cloud"
+      "url": "https://wallet-sdqv.onrender.com"
     },
     {
       "url": "http://localhost:2200"
